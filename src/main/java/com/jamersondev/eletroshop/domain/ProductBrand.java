@@ -10,14 +10,14 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "product_brand")
-@SequenceGenerator(name = "seq_product_brand", sequenceName = "seq_product_brand", allocationSize = 1, initialValue = 1)
 @Getter
 @Setter
 public class ProductBrand implements Serializable {
+
     private static final long serialVersionUID = -6585019090621275453L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
