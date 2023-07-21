@@ -1,5 +1,6 @@
 package com.jamersondev.eletroshop.domain;
 
+import com.jamersondev.eletroshop.enums.TypeAddress;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,6 +49,9 @@ public class Address implements Serializable {
     @ManyToOne
     @JoinColumn(name = "personPj_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_fk"))
     private PersonPF personPj;
+
+    @Enumerated(EnumType.STRING)
+    private TypeAddress typeAddress;
 
 
     @Override
