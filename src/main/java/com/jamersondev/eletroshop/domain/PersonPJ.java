@@ -30,7 +30,7 @@ public class PersonPJ extends Person{
 
     private String category;
 
-    @OneToMany(mappedBy = "personPj")
+    @OneToMany(mappedBy = "personPj", orphanRemoval = true)
     private List<Address> addresses = new ArrayList<Address>();
 
 

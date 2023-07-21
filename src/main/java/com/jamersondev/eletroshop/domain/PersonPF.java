@@ -25,7 +25,7 @@ public class PersonPF extends Person{
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @OneToMany(mappedBy = "personPf")
+    @OneToMany(mappedBy = "personPf", orphanRemoval = true)
     private List<Address> addresses = new ArrayList<Address>();
 
 
