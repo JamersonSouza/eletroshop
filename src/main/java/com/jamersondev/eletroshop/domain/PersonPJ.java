@@ -3,11 +3,10 @@ package com.jamersondev.eletroshop.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serial;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "legal_person")
@@ -30,6 +29,9 @@ public class PersonPJ extends Person{
     private String corporateName;
 
     private String category;
+
+    @OneToMany(mappedBy = "personPj")
+    private List<Address> addresses = new ArrayList<Address>();
 
 
 }
