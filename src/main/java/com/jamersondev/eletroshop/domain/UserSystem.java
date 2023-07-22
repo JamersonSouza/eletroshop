@@ -34,7 +34,7 @@ public class UserSystem implements Serializable, UserDetails {
 
     @OneToMany(fetch = FetchType.LAZY)
     /*União de tabela de User com Role_Access para gerar uma nova tabela -> users_access */
-    @JoinTable(name = "users_access", uniqueConstraints = @UniqueConstraint(columnNames = {
+    @JoinTable(name = "user_access", uniqueConstraints = @UniqueConstraint(columnNames = {
             "user_id", "role_access_id"
     }, name = "unique_role_access_user"), joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id",
     table = "user", unique = false, foreignKey = @ForeignKey(name = "user_fk", value = ConstraintMode.CONSTRAINT))
