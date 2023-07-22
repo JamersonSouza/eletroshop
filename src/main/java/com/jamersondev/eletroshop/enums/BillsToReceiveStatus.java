@@ -1,9 +1,6 @@
 package com.jamersondev.eletroshop.enums;
 
-import lombok.Getter;
-import lombok.Setter;
-
-public enum BillsToReceive {
+public enum BillsToReceiveStatus {
 
     COBRANCA("Pagar"),
     ABERTA("Aberta"),
@@ -11,7 +8,7 @@ public enum BillsToReceive {
     QUITADA("Quitada");
    private String name;
 
-    BillsToReceive(String name) {
+    BillsToReceiveStatus(String name) {
         this.name = name;
     }
 
