@@ -33,6 +33,10 @@ public class InvoiceSale implements Serializable {
     @Column(columnDefinition = "text")
     private String pdf;
 
+    @OneToOne
+    @JoinColumn(name = "sellAndBuy_store_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sellAndBuy_store_fk"))
+    private SellAndBuyStore sellAndBuyStore;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

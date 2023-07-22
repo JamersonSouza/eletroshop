@@ -28,6 +28,10 @@ public class TrackingStatus implements Serializable {
 
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "sellAndBuy_store_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "tracking_sellAndBuy_store_fk"))
+    private SellAndBuyStore sellAndBuyStore;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
