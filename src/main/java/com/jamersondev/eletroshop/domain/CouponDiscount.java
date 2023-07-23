@@ -14,17 +14,23 @@ import java.util.Objects;
 @Getter
 @Setter
 public class CouponDiscount implements Serializable {
+
+
+    private static final long serialVersionUID = 4564074999922568990L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String codeDescription;
 
     private BigDecimal realValueDiscount;
 
     private BigDecimal valuePercentageDiscount;
 
+    @Column(nullable = false)
     private Date couponValidity;
 
     @Override

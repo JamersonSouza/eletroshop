@@ -25,11 +25,14 @@ public class UserSystem implements Serializable, UserDetails {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String login;
 
+    @Column(nullable = false)
     private String password;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date currentDatePassword;
 
     @OneToMany(fetch = FetchType.LAZY)
@@ -41,6 +44,16 @@ public class UserSystem implements Serializable, UserDetails {
     , inverseJoinColumns = @JoinColumn(name = "role_access_id", unique = false, referencedColumnName = "id", table = "role_access",
     foreignKey = @ForeignKey(name = "role_access_id", value = ConstraintMode.CONSTRAINT)))
     private List<Role> roleAccess;
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "personPf_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPf_userSystem_fk"))
+    private PersonPF personPf;
+
+    @ManyToOne
+    @JoinColumn(name = "personPj_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_userSystem_fk"))
+    private PersonPF personPj;
 
 
     @Override

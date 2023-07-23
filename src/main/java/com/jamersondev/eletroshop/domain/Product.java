@@ -22,23 +22,31 @@ public class Product implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String typeUnit;
 
+    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "text",length = 2000)
+    @Column(columnDefinition = "text",length = 2000,  nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private Double weight;
 
+    @Column(nullable = false)
     private Double height;
 
+    @Column(nullable = false)
     private Double width;
 
+    @Column(nullable = false)
     private Double depth;
 
+    @Column(nullable = false)
     private BigDecimal saleValue = BigDecimal.ZERO;
 
+    @Column(nullable = false)
     private Integer stockQuantity;
 
     private Integer alertStockQuantity;
@@ -47,8 +55,9 @@ public class Product implements Serializable {
 
     private Integer linkVideoYoutube;
 
-    private Integer clicksQuantity;
+    private Integer clicksQuantity = 0;
 
+    @Column(nullable = false)
     private Boolean active = Boolean.TRUE;
 
     @Override

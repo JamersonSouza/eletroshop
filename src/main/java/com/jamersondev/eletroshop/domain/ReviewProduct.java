@@ -20,8 +20,10 @@ public class ReviewProduct implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private Integer score;
 
     @ManyToOne

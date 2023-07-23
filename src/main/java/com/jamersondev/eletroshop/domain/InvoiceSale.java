@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,21 +20,24 @@ public class InvoiceSale implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String numberInvoice;
 
+    @Column(nullable = false)
     private String seriesInvoice;
 
+    @Column(nullable = false)
     private String type;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String xml;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String pdf;
 
     @OneToOne
     @JoinColumn(name = "sellAndBuy_store_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sellAndBuy_store_fk"))
-    private SellAndBuyStore sellAndBuyStore;
+    private SaleAndBuyStore saleAndBuyStore;
 
     @Override
     public boolean equals(Object o) {

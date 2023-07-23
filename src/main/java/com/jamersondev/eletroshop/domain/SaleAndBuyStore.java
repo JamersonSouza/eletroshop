@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "sell_and_buy_store_virtual")
 @Getter
 @Setter
-public class SellAndBuyStore implements Serializable {
+public class SaleAndBuyStore implements Serializable {
 
     private static final long serialVersionUID = 6722055912421672440L;
 
@@ -34,6 +34,7 @@ public class SellAndBuyStore implements Serializable {
     @JoinColumn(name = "address_delivery_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "address_delivery_fk"))
     private Address deliveryAddress;
 
+    @Column(nullable = false)
     private BigDecimal amount;
 
     private BigDecimal valueDiscount;
@@ -50,14 +51,18 @@ public class SellAndBuyStore implements Serializable {
     @JoinColumn(name = "couponDiscount_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "couponDiscount_buy_store_virtual_fk"))
     private CouponDiscount couponDiscount;
 
+    @Column(nullable = false)
     private BigDecimal valueFreight;
 
+    @Column(nullable = false)
     private Integer daysToDelivery;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date dayOfSale;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date deliveryDate;
 
 
@@ -65,7 +70,7 @@ public class SellAndBuyStore implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SellAndBuyStore that = (SellAndBuyStore) o;
+        SaleAndBuyStore that = (SaleAndBuyStore) o;
         return Objects.equals(id, that.id);
     }
 

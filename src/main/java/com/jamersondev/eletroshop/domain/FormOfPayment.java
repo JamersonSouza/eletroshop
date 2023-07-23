@@ -12,6 +12,7 @@ import java.util.Objects;
 @Getter
 @Setter
 public class FormOfPayment implements Serializable {
+
     private static final long serialVersionUID = 1006852327822449315L;
 
     @Id
@@ -19,6 +20,7 @@ public class FormOfPayment implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String description;
 
     @Override

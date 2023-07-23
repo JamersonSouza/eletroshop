@@ -22,8 +22,10 @@ public class InvoicePurchase implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String numberInvoice;
 
+    @Column(nullable = false)
     private String seriesInvoice;
 
     private String description;
@@ -32,21 +34,23 @@ public class InvoicePurchase implements Serializable {
 
     private BigDecimal valueDiscountInvoice;
 
+    @Column(nullable = false)
     private BigDecimal valueIcmsInvoice;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date buyDate;
 
     @ManyToOne
-    @JoinColumn(name = "personPf_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPf_invoicePurchase_fk"))
+    @JoinColumn(name = "personPf_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPf_invoicePurchase_fk"))
     private PersonPF personPf;
 
     @ManyToOne
-    @JoinColumn(name = "personPj_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_invoicePurchase_fk"))
+    @JoinColumn(name = "personPj_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_invoicePurchase_fk"))
     private PersonPF personPj;
 
     @ManyToOne
-    @JoinColumn(name = "billsToPay_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "billsToPay_invoicePurchase_fk"))
+    @JoinColumn(name = "billsToPay_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "billsToPay_invoicePurchase_fk"))
     private BillsToPay billsToPay;
 
     @Override

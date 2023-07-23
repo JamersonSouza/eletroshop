@@ -20,6 +20,7 @@ public class ItemSaleStore implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private Double quantity;
 
     @ManyToOne
@@ -28,7 +29,7 @@ public class ItemSaleStore implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "sellAndBuy_store_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "itemSaleStore_sellAndBuy_fk"))
-    private SellAndBuyStore sellAndBuyStore;
+    private SaleAndBuyStore saleAndBuyStore;
 
     @Override
     public boolean equals(Object o) {

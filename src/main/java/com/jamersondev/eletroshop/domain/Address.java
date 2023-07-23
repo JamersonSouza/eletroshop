@@ -21,36 +21,37 @@ public class Address implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "cep")
+    @Column(name = "cep", nullable = false)
     private String cep;
 
-    @Column(name = "street")
+    @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "number_house")
+    @Column(name = "number_house", nullable = false)
     private String number;
 
     @Column(name = "complement_address")
     private String complement;
 
-    @Column(name = "district")
+    @Column(name = "district", nullable = false)
     private String district;
 
-    @Column(name = "UF")
+    @Column(name = "UF", nullable = false)
     private String uf;
 
-    @Column(name = "city")
+    @Column(name = "city", nullable = false)
     private String city;
 
     @ManyToOne
-    @JoinColumn(name = "personPf_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPf_fk"))
+    @JoinColumn(name = "personPf_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPf_fk"))
     private PersonPF personPf;
 
     @ManyToOne
-    @JoinColumn(name = "personPj_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_fk"))
+    @JoinColumn(name = "personPj_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_fk"))
     private PersonPF personPj;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TypeAddress typeAddress;
 
 

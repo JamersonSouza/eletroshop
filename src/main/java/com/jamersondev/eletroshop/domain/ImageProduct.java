@@ -20,10 +20,10 @@ public class ImageProduct implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String imageOriginal;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String imageMiniature;
 
     @ManyToOne

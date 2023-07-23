@@ -1,11 +1,9 @@
 package com.jamersondev.eletroshop.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
@@ -21,7 +19,7 @@ public class ProductBrand implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name_brand")
+    @Column(name = "name_brand", nullable = false)
     private String name;
 
 }

@@ -21,7 +21,7 @@ public class ProductCategory implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name_category")
+    @Column(name = "name_category", nullable = false)
     private String name;
 
     @Override

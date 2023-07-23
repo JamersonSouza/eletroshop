@@ -30,7 +30,7 @@ public class TrackingStatus implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "sellAndBuy_store_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "tracking_sellAndBuy_store_fk"))
-    private SellAndBuyStore sellAndBuyStore;
+    private SaleAndBuyStore saleAndBuyStore;
 
     @Override
     public boolean equals(Object o) {

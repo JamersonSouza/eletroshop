@@ -23,23 +23,27 @@ public class BillsToReceive implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private BillsToReceiveStatus billsToReceiveStatus;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date expirationDate;
 
     @Temporal(TemporalType.DATE)
     private Date paymentDate;
 
+    @Column(nullable = false)
     private BigDecimal amount;
 
     private BigDecimal discountValue;
 
     @ManyToOne
-    @JoinColumn(name = "personPj_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_billsToReceive_fk"))
+    @JoinColumn(name = "personPj_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "personPj_billsToReceive_fk"))
     private PersonPF personPj;
 
     @Override
