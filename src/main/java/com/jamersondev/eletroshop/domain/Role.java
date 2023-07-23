@@ -23,6 +23,7 @@ public class Role implements GrantedAuthority, Serializable {
     private Long id;
 
     @Column(name = "access_role_type", nullable = false)
+    @Enumerated(EnumType.STRING)
     private RoleAccess role;
 
     @Override

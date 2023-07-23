@@ -1,7 +1,8 @@
 package com.jamersondev.eletroshop.enums;
 
 public enum RoleAccess {
-    ROLE_USER("Usuário");
+    ROLE_USER("User"),
+    ROLE_ADMIN("Administrador");
 
     private String roleDescripton;
 
