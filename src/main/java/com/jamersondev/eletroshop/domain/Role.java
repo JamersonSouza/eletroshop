@@ -1,5 +1,6 @@
 package com.jamersondev.eletroshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jamersondev.eletroshop.enums.RoleAccess;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +27,7 @@ public class Role implements GrantedAuthority, Serializable {
     @Enumerated(EnumType.STRING)
     private RoleAccess role;
 
+    @JsonIgnore
     @Override
     public String getAuthority() {
         return this.role.getRoleDescripton();
