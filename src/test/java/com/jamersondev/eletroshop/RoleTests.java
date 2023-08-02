@@ -50,6 +50,27 @@ public class RoleTests extends TestCase {
         assertEquals(role.getRole(), roleReturn.getRole());
     }
 
+    @Test
+    public void testRestApiFindRoleById() throws JsonProcessingException, Exception {
+        DefaultMockMvcBuilder defaultMockMvcBuilder = MockMvcBuilders.webAppContextSetup(this.wac);
+        MockMvc mockMvc = defaultMockMvcBuilder.build();
+        Role role = new Role();
+        ObjectMapper objectMapper = new ObjectMapper();
+        role.setRole(RoleAccess.ROLE_ADMIN);
+        role = this.roleService.rolePersistence(role);
+        ResultActions resultApi = mockMvc
+                .perform(MockMvcRequestBuilders.get("/role/find/" + role.getId())
+                        .content(objectMapper.writeValueAsString(role))
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON));
+
+        System.out.println("RETURN API: " + resultApi.andReturn().getResponse().getContentAsString());
+        assertEquals(200, resultApi.andReturn().getResponse().getStatus());
+        Role returnRole = objectMapper.readValue(resultApi.andReturn().getResponse().getContentAsString(), Role.class);
+        assertEquals(role.getRole(), returnRole.getRole());
+        assertEquals(role.getId(), returnRole.getId());
+    }
+
 
     @Test
     void registrationAccessTest(){

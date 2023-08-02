@@ -4,10 +4,9 @@ import com.jamersondev.eletroshop.domain.Role;
 import com.jamersondev.eletroshop.service.RoleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("role")
@@ -23,5 +22,11 @@ public class AccessController {
     public ResponseEntity<Role> saveAccess(@RequestBody Role role){
         Role roleSave = this.roleService.rolePersistence(role);
         return new ResponseEntity<Role>(roleSave, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<Role> findAccess(@PathVariable("id") Long id){
+            Role roleId = this.roleService.findRole(id);
+            return new ResponseEntity<Role>(roleId, HttpStatus.OK);
     }
 }
