@@ -5,7 +5,6 @@ import com.jamersondev.eletroshop.repository.RoleRepository;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

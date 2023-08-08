@@ -2,7 +2,6 @@ package com.jamersondev.eletroshop.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
 import java.io.Serializable;
