@@ -1,6 +1,7 @@
 package com.jamersondev.eletroshop.jwt;
 
 import com.jamersondev.eletroshop.domain.UserSystem;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
@@ -39,6 +40,32 @@ public class JwtUtil {
             LOGGER.error("Error: ", e);
             return "";
         }
+    }
+
+    private Claims getClaims(String token){
+        try {
+            Key secretKey = Keys.hmacShaKeyFor(jwtSecret.getBytes("UTF-8"));
+            return Jwts.parserBuilder().setSigningKey(secretKey).build()
+                    .parseClaimsJws(token).getBody();
+        }catch (Exception e){
+            LOGGER.error("Error: ", e);
+            return null;
+        }
+    }
+
+    //method for valid token
+    public boolean validatedToken(String token){
+        Claims claims = getClaims(token);
+        if(claims == null) {
+            return false;
+        }
+        String login = claims.getSubject();
+        Date dateExpiration = claims.getExpiration();
+        Date dateNow = new Date(System.currentTimeMillis());
+        if(login != null && dateNow.before(dateExpiration)){
+            return true;
+        }
+        return false;
     }
 
 }
