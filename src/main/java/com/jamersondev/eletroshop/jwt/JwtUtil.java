@@ -62,10 +62,7 @@ public class JwtUtil {
         String login = claims.getSubject();
         Date dateExpiration = claims.getExpiration();
         Date dateNow = new Date(System.currentTimeMillis());
-        if(login != null && dateNow.before(dateExpiration)){
-            return true;
-        }
-        return false;
+        return login !=null && dateNow.before(dateExpiration);
     }
 
     //method for get login user
