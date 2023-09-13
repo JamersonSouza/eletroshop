@@ -22,7 +22,7 @@ public class JwtUtil {
     @Value("${jwtTimeExpiration}")
     private Integer jwtExpirationTime;
 
-    private String generateToken(Authentication auth){
+    public String generateToken(Authentication auth){
         //get user current
         UserSystem user = (UserSystem) auth.getPrincipal();
 
